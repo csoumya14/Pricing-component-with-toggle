@@ -1,0 +1,261 @@
+:root {
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+  --lg-start: hsl(236, 72%, 79%);
+  --lg-stop: hsl(237, 63%, 64%);
+  --w700: 700;
+}
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  background-color: var(--very-light-grayish-blue);
+  background-image: url('./images/bg-top.svg'), url('./images/bg-bottom.svg');
+  background-repeat: no-repeat;
+  background-position: 50vw -10vw, left bottom;
+}
+
+.main-section {
+  max-width: 100%;
+  width: 100vw;
+}
+.heading-toggle-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-top: 4rem;
+}
+.main-heading {
+  color: var(--grayish-blue);
+}
+.switch-labels {
+  color: var(--light-grayish-blue);
+}
+
+.toggle-switch {
+  margin-top: 1rem;
+}
+
+.switch-labels {
+  align-self: center;
+  display: inline-flex;
+}
+
+.switch input[type='checkbox'] {
+  opacity: 0;
+  position: absolute;
+}
+.md_switch__toggle::before,
+.md_switch__toggle::after {
+  content: '';
+  background: linear-gradient(to right, var(--lg-start), var(--lg-stop));
+  cursor: pointer;
+  margin-top: -0.3rem;
+  margin-right: 3.5rem;
+  margin-left: 1.5rem;
+  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.md_switch__toggle::before {
+  height: 2rem;
+  width: 3.5rem;
+  border-radius: 2rem;
+  position: absolute;
+}
+
+.md_switch__toggle::after {
+  position: relative;
+  background: var(--very-light-grayish-blue);
+  top: 1rem;
+  transform: translate(0, -50%);
+  height: 1.6em;
+  width: 1.6em;
+  border-radius: 50%;
+}
+
+.toggle-switch [type='checkbox']:focus + .md_switch__toggle::before {
+  outline: 1px solid red;
+}
+
+.toggle-switch [type='checkbox']:checked + .md_switch__toggle::after {
+  transform: translate(calc(3.3em - 100%), -50%);
+}
+.price-card-container {
+  width: 100vw;
+  display: flex;
+  margin-top: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  width: 20.4rem;
+
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--grayish-blue);
+  margin-bottom: 2rem;
+  -webkit-box-shadow: 0 10px 40px 5px rgba(163, 168, 240, 0.2);
+  box-shadow: 0 10px 40px 5px rgba(163, 168, 240, 0.2);
+}
+
+.first-card {
+  background-color: #fff;
+}
+.second-card {
+  background: linear-gradient(to bottom right, var(--lg-start), var(--lg-stop));
+  color: white;
+}
+.third-card {
+  background-color: #fff;
+}
+
+.dollar-sign {
+  font-size: 45px;
+  position: absolute;
+  margin-top: 0.8rem;
+  color: var(--dark-grayish-blue);
+}
+.price-value {
+  font-size: 65px;
+  margin-left: 2.5rem;
+  color: var(--dark-grayish-blue);
+}
+.second-card .dollar-sign {
+  color: white;
+}
+.second-card .price-value {
+  color: white;
+}
+.card ul {
+  width: 80%;
+  text-align: center;
+  padding: 1rem;
+}
+.card ul li {
+  border-bottom: 1px solid var(--light-grayish-blue);
+  padding: 1rem;
+  list-style: none;
+}
+.card ul li:nth-child(1) {
+  border-top: 1px solid var(--light-grayish-blue);
+}
+/*add a zero-width space as pseudo-content before each list item to ensure the list is recognized properly on Safari*/
+.card ul li::before {
+  content: '\200B';
+}
+.second-card ul li {
+  border-bottom: 1px solid var(--lg-start);
+}
+
+.second-card ul li:nth-child(1) {
+  border-top: 1px solid var(--lg-start);
+}
+.card button {
+  padding: 1rem 4.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--lg-start), var(--lg-stop));
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.card button:hover,
+.card button:focus {
+  background: transparent;
+  color: var(--lg-stop);
+  outline: 1px solid var(--lg-stop);
+}
+
+.card button:active {
+  transform: scale(0.99);
+}
+.second-card button {
+  background: white;
+  color: blue;
+}
+
+.second-card button:hover,
+.second-card button:focus {
+  outline: 1px solid white;
+  background: transparent;
+  color: white;
+}
+.attribution {
+  font-size: 11px;
+  margin-top: 5rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+@media only screen and (min-width: 420px) {
+  .card {
+    margin-bottom: 3rem;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  body {
+    background-position: 70vw -10vw, left bottom;
+  }
+  .heading-toggle-container {
+    margin-top: 5%;
+  }
+  .price-card-container {
+    margin-top: 15%;
+  }
+  .card {
+    width: 40%;
+    margin-bottom: 3rem;
+  }
+}
+@media only screen and (min-width: 1023px) {
+  body {
+    background-position: right top, left bottom;
+  }
+  .heading-toggle-container {
+    margin-top: 5%;
+  }
+  .price-card-container {
+    margin-top: 12%;
+  }
+  .card {
+    margin-bottom: 3rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .heading-toggle-container {
+    margin-top: 3%;
+  }
+  .price-card-container {
+    margin-top: 6%;
+    flex-direction: row;
+  }
+  .card {
+    width: 21.875rem;
+    margin-bottom: 3rem;
+  }
+  .second-card {
+    height: 30rem;
+  }
+}
